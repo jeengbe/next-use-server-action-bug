@@ -1,10 +1,11 @@
 "use client"
 
-import { use } from "react";
+import { use, useMemo } from "react";
 import { loadThings } from "../action";
 
 export default function Page() {
-  use(loadThings());
+  const promise = useMemo(() => loadThings(), []);
+  use(promise);
 
   return "hi";
 }
